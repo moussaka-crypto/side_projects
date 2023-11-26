@@ -1,0 +1,18 @@
+data50 = dlmread("generated_files/50_sims","\t")
+data100 = dlmread("generated_files/100_sims","\t")
+data200 = dlmread("generated_files/200_sims","\t")
+
+x_50 = data50(:,1)
+y_50 = data50(:,2)
+
+x_100 = data100(:,1)
+y_100 = data100(:,2)
+
+x_200 = data200(:,1)
+y_200 = data200(:,2)
+
+plot(x_50,y_50,";50 Sims;", x_100,y_100,";100 Sims;", x_200,y_200,";200 Sims;")
+xlabel("Anzahl Dezimalstellen");
+ylabel("Durchschnittliche Anzahl Runden");
+title("Simulation durchschnittliche Anzahl Runden");
+print("plot.pdf","-dpdf");

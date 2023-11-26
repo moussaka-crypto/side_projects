@@ -19,14 +19,14 @@ romania = Graph(['Or', 'Ne', 'Ze', 'Ia', 'Ar', 'Si', 'Fa',
                     ('Hi', 'Ef', 86)
                 ])
 
-
+# Depth-First Search
 def dfs(problem, initial, goal):
     node = getNode(initial, problem.nodes)
-
     solution = []
+  
     if goal == node.name:
         return solution
-
+      
     frontier = MiQueue()
     frontier.enqueue(node)
     explored = []
@@ -46,11 +46,11 @@ def dfs(problem, initial, goal):
 
     return "failure"
 
-
+# Breadth-First Search
 def bfs(problem, initial, goal):
     node = getNode(initial, problem.nodes)
-
     solution = []
+  
     if goal == node.name:
         return solution
 
@@ -75,10 +75,10 @@ def bfs(problem, initial, goal):
                 frontier.enqueue(child)
     return "failure"
 
-
 def solution_filter(action_seq, start, goal):
     filtered_solution = []
     find_start = goal
+  
     while find_start != start:
         for action in action_seq:
             if action.end.name == find_start:
@@ -87,11 +87,11 @@ def solution_filter(action_seq, start, goal):
 
     return reversed(filtered_solution)
 
-
+# Uniform-Cost Search
 def ucs(problem, initial, goal):
     node = getNode(initial, problem.nodes)
-
     solution = []
+  
     if goal == node.name:
         return solution
 

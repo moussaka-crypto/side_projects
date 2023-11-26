@@ -45,7 +45,6 @@ class Grid:
     def get_field(self, row, column):
         return self.fields[row][column]
 
-
 class Field:
 
     def __init__(self, row, column, tile):

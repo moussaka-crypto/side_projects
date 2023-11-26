@@ -1,4 +1,4 @@
-class Queue:
+class MiQueue:
 
     def __init__(self):
         self.elements = []

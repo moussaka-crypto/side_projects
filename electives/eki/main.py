@@ -1,5 +1,5 @@
 from graph import *
-from queue import Queue
+from miqueue import MiQueue
 
 romania = Graph(['Or', 'Ne', 'Ze', 'Ia', 'Ar', 'Si', 'Fa',
                  'Va', 'Ri', 'Ti', 'Lu', 'Pi', 'Ur', 'Hi',
@@ -27,7 +27,7 @@ def dfs(problem, initial, goal):
     if goal == node.name:
         return solution
 
-    frontier = Queue()
+    frontier = MiQueue()
     frontier.enqueue(node)
     explored = []
 
@@ -54,7 +54,7 @@ def bfs(problem, initial, goal):
     if goal == node.name:
         return solution
 
-    frontier = Queue()
+    frontier = MiQueue()
     frontier.enqueue(node)
     explored = []
 
@@ -95,7 +95,7 @@ def ucs(problem, initial, goal):
     if goal == node.name:
         return solution
 
-    frontier = Queue()
+    frontier = MiQueue()
     frontier.prio_enqueue(node)
     explored = []
 

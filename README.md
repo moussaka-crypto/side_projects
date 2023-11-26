@@ -1,6 +1,5 @@
 ## **Side projects**
   ### **Electives**
-   * #### _bda1_ (Big Data Analytics 1)
    * #### _crypto_ (Cryptology)
    * #### _inf-theory_ (Information Theory)
    * #### _kmps_ (Modern Programming Concepts)

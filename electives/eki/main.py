@@ -66,8 +66,7 @@ def bfs(problem, initial, goal):
             child = getNode(edge.end.name, problem.nodes)
             child.parent = edge.start.name
 
-            if child not in explored and getNode(child.name, frontier.elements) == -1:  # child is not in explored
-                # and queue
+            if child not in explored and getNode(child.name, frontier.elements) == -1:  # child is neither in explored nor queue
                 solution.append(edge)
 
                 if child.name == goal:

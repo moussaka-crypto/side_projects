@@ -1,7 +1,7 @@
 ## **Side projects**
   ### **Electives**
    * #### [_crypto_ (Cryptology)](https://github.com/moussaka-crypto/side_projects/tree/master/electives/crypto)
-   <!---* #### [_eki_ (Introduction to AI)](https://github.com/moussaka-crypto/side_projects/tree/master/electives/eki) -->
+   * #### [_intro2ai_ (Introduction to AI)](https://github.com/moussaka-crypto/side_projects/tree/master/electives/intro2ai)
    * #### [_inf-theory_ (Information Theory)](https://github.com/moussaka-crypto/side_projects/tree/master/electives/inf-theory)
    * #### [_kmps_ (Modern Programming Concepts)](https://github.com/moussaka-crypto/side_projects/tree/master/electives/kmps)
 

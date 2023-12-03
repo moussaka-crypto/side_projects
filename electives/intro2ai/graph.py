@@ -15,8 +15,6 @@ class Edge:
       self.start = edge[0]
       self.end = edge[1]
       self.value = edge[2]
-      # append edge 0 and 1 together in self.name
-      self.name = edge[0].name + edge[1].name
 
 class Graph:
 

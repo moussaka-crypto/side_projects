@@ -19,20 +19,54 @@ romania = Graph( ['Or', 'Ne', 'Ze', 'Ia', 'Ar', 'Si', 'Fa',
    ('Hi', 'Ef', 86)
 ] )
 
+bulgaria = Graph(['CB', 'CO', 'PB', 'B', 'A', 'P', 'CT', 'EH',
+                 'CH', 'TX', 'H', 'PK', 'Y', 'X', 'E',
+                 'BT', 'EB', 'BP', 'KH', 'PA', 'M'],
+                [
+                    ('CB', 'CO', 70),
+                    ('CB', 'B', 200),
+                    ('CB', 'A', 250),
+                    ('PB', 'B', 180),
+                    ('PB', 'CT', 50),
+                    ('B', 'P', 300),
+                    ('B', 'TX', 120),
+                    ('A', 'PB', 120),
+                    ('A', 'CT', 90),
+                    ('P', 'B', 250),
+                    ('P', 'BT', 130),
+                    ('CT', 'PB', 40),
+                    ('CT', 'A', 60),
+                    ('EH', 'P', 180),
+                    ('CH', 'CT', 70),
+                    ('TX', 'B', 80),
+                    ('H', 'B', 100),
+                    ('PK', 'CB', 30),
+                    ('Y', 'A', 110),
+                    ('X', 'PB', 120),
+                    ('E', 'CB', 80),
+                    ('BT', 'P', 100),
+                    ('EB', 'CT', 60),
+                    ('BP', 'CB', 50),
+                    ('KH', 'CB', 70),
+                    ('PA', 'PB', 90),
+                    ('M', 'BP', 40)
+                ])
+
 def reverse_path(action_sequence, start, goal):
-    filtered_solution = []
+    filtered_path = []
     reverse_start = goal
   
     while reverse_start != start:
-        filtered_solution.extend(action for action in action_sequence if action.end.name == reverse_start)
-        reverse_start = filtered_solution[-1].start.name if filtered_solution else start
+        filtered_path.extend(action for action in action_sequence if action.end.name == reverse_start)
+        reverse_start = filtered_path[-1].start.name if filtered_path else start
 
-    return filtered_solution[::-1]
+    return filtered_path[::-1]
 
 """
+Uninformed Search Algorithms
 g: graph
-start: starting node
-goal: ending node
+start: star node
+goal: end node
 """
 def bfs(g, start, goal):
     node = getNode(start, g.nodes)
@@ -62,6 +96,7 @@ def bfs(g, start, goal):
                 queue.enqueue(child)
     return -1
 
+
 def dfs(g, start, goal):
     node = getNode(start, g.nodes)
     path = []
@@ -90,19 +125,74 @@ def dfs(g, start, goal):
                 stack.push(child)
     return -1
 
+
+def ucs(g, start, goal):
+    node = getNode(start, g.nodes)
+    path = []
+
+    if goal == node.name:
+        return path
+
+    pq = MiQueue()
+    pq.pq_enqueue(node)
+    visited = []
+
+    while pq.items:
+        node = pq.dequeue()
+
+        if node.name == goal:
+            return reverse_path(path, start, goal)
+
+        visited.append(node)  # mark as visited
+
+        for edge in node.edges:  # determine child nodes
+            child = getNode(edge.end.name, g.nodes)
+
+            if child.parent == 0:
+                child.parent = edge.start.name
+
+            current_path = edge.value + getNode(edge.start.name, g.nodes).value
+
+            # child is neither visited nor in queue
+            if child not in visited and getNode(child.name, pq.items) == -1:
+                child.value = current_path
+                pq.pq_enqueue(child)
+                path.append(edge)
+            # child is in queue but with higher path cost
+            elif getNode(child.name, pq.items) != -1 and current_path < child.value:
+                pq.items.remove(child)
+
+                for step in path:
+                    if child.name == step.start.name:
+                        path.remove(step)
+
+                child.parent = edge.start.name
+                child.value = current_path
+                pq.pq_enqueue(child)
+                path.append(edge)
+    return -1
+
+
 if __name__ == '__main__':
     
     # path and travelling costs from Bucharest to Timisoara
-    total_costs = 0
+    total_cost = 0
     path = bfs(romania, "Bu", "Ti")
     for action in path:
-        total_costs += action.value
+        total_cost += action.value
         print(action.start.name, "->", action.end.name, action.value)
-    print("BFS Traversal Cost: ", total_costs, '\n')
+    print("BFS Traversal Cost: ", total_cost, '\n')
 
-    total_costs = 0
+    total_cost = 0
     path = dfs(romania, "Bu", "Ti")
     for action in path:
-        total_costs += action.value
+        total_cost += action.value
         print(action.start.name, "->", action.end.name, action.value)
-    print("DFS Traversal Cost: ", total_costs, '\n')
+    print("DFS Traversal Cost: ", total_cost, '\n')
+
+    total_cost = 0
+    path = ucs(romania, "Bu", "Ti")
+    for action in path:
+        total_cost += action.value
+        print(action.start.name, "->", action.end.name, action.value)
+    print("UCS Traversal Cost: ", total_cost)

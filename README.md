@@ -1,5 +1,5 @@
 # **Side projects**
-## Мои разработки на избираеми дисциплини и други мои проекти
+### Мои разработки на задачи от избираеми дисциплини и други мои проекти
   ### **Electives**
    * #### [_crypto_ (Cryptology)](https://github.com/moussaka-crypto/side_projects/tree/master/electives/crypto)
    * #### [_intro2ai_ (Introduction to AI)](https://github.com/moussaka-crypto/side_projects/tree/master/electives/intro2ai)

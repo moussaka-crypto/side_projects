@@ -13,7 +13,7 @@
    * #### [_port-scanner_ (Прост скрипт за сканиране на портове)](https://github.com/moussaka-crypto/side_projects/tree/master/other/port-scanner)
    * #### [_webinar_ (Python уебинар в 2 части)](https://github.com/moussaka-crypto/side_projects/tree/master/other/webinar)
 
-### Done out of boredom:
+### Done out of boredom...
 <img src="https://static.wikia.nocookie.net/shuumatsu-no-valkyrie/images/2/21/Thor%27s_Boredom.png/revision/latest?cb=20190608130052"
      alt="bored"
   width= 30%/>

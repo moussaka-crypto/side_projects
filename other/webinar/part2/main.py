@@ -42,7 +42,7 @@ def count_points_in_lines(data):
     return sum(matched_lines for count in point_count.values() if (matched_lines := count >= 2))
 
 if __name__ == "__main__":
-    test = "./test-input.txt"
+    test = "./test.txt"
     test_data = read_file(test)
     test_res = count_points_in_lines(test_data)
 

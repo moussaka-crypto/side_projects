@@ -8,6 +8,7 @@
 
   ### **Other/Други**
    * #### [_delete-WL_ (Delete Watch Later videos script/Скрипт за изтриване на плейлиста "Гледай по-късно")](https://github.com/moussaka-crypto/side_projects/tree/master/other/delete-WL)
+   * #### [_game-of-life_ (Играта "Живот")](https://github.com/moussaka-crypto/side_projects/tree/master/other/game-of-life) - [_Относно играта_](https://bg.wikipedia.org/wiki/%D0%96%D0%B8%D0%B2%D0%BE%D1%82_(%D0%B8%D0%B3%D1%80%D0%B0))
    * #### [_fourier_ (Фурие трансформация)](https://github.com/moussaka-crypto/side_projects/tree/master/other/fourier)
    * #### [_png2pdf_ (Конвертиране на снимки от .png формат в документ в .pdf формат)](https://github.com/moussaka-crypto/side_projects/tree/master/other/png2pdf)
    * #### [_port-scanner_ (Прост скрипт за сканиране на портове)](https://github.com/moussaka-crypto/side_projects/tree/master/other/port-scanner)

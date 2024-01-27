@@ -11,4 +11,4 @@
    * #### [_fourier_ (Фурие трансформация)](https://github.com/moussaka-crypto/side_projects/tree/master/other/fourier)
    * #### [_png2pdf_ (Конвертиране на снимки от .png формат в документ в .pdf формат)](https://github.com/moussaka-crypto/side_projects/tree/master/other/png2pdf)
    * #### [_port-scanner_ (Прост скрипт за сканиране на портове)](https://github.com/moussaka-crypto/side_projects/tree/master/other/port-scanner)
-   <!--* #### __
+   * #### [_webinar_ (Python уебинар в 2 части)](https://github.com/moussaka-crypto/side_projects/tree/master/other/webinar)

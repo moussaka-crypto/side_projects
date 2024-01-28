@@ -55,7 +55,7 @@ int main()
 		// Spielfeld anzeigen ..
 		gip_white_background();
 		gip_stop_updates(); // ... schaltet das Neuzeichnen nach
-							   // jeder Bildschirm‰nderung aus
+							   // jeder Bildschirm√§nderung aus
 		// TO DO
 		for (int y = 0; y < grid_size; ++y) {
 			for (int x = 0; x < grid_size; ++x) {
@@ -73,13 +73,13 @@ int main()
 			}
 		}
 
-		gip_start_updates(); // ... alle Bildschirm‰nderungen (auch die
+		gip_start_updates(); // ... alle Bildschirm√§nderungen (auch die
 							 // nach dem gip_stop_updates() ) wieder anzeigen
 		gip_sleep(1);
 		// Berechne das naechste Spielfeld ...
-		// Achtung; F¸r die Zelle (x,y) darf die Position (x,y) selbst *nicht*
+		// Achtung; F√ºr die Zelle (x,y) darf die Position (x,y) selbst *nicht*
 		// mit in die Betrachtungen einbezogen werden.
-		// Ausserdem darf bei zellen am rand nicht ¸ber den Rand hinausgegriffen
+		// Ausserdem darf bei zellen am rand nicht √ºber den Rand hinausgegriffen
 		// werden (diese Zellen haben entsprechend weniger Nachbarn) ...
 		// TO DO
 		for (int y = 0; y < grid_size; y++) {
@@ -149,6 +149,7 @@ void grid_init(bool grid[][grid_size])
 				}
 			}
 		break;
+			// TODO: summarize the following pattern code and don't repeat yourself
 		case 1: {
 			//const int pattern_size_1 = 3;
 			char pattern[3][3] =

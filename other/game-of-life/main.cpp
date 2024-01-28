@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <limits>
 #define CIMGGIP_MAIN
 #include "CImgGIP08.h"
 using namespace std;
@@ -104,11 +105,6 @@ int main()
 	return 0;
 }
 
-void clearInput() {
-	cin.clear();
-	cin.ignore(numeric_limits<streamsize>::max(), '\n');
-}
-
 void grid_init(bool grid[][grid_size])
 {
 	int eingabe;
@@ -125,128 +121,133 @@ void grid_init(bool grid[][grid_size])
 			<< "99 - Quit" << endl
 			<< "?> ";
 
-		cin >> eingabe;
-		clearInput();
-
-		// TODO: add exception handling
-		/*try {
-			cin >> eingabe;
-			if (eingabe != 99 && (eingabe < 0 || eingabe > 6))
-				throw eingabe;
+		string input;
+		getline(cin, input);
+		if (input.empty()) {
+			cout << "Ungueltige Auswahl. Bitte erneut waehlen." << endl;
+			continue;
 		}
-		catch (...) {
-			cout << "Ungueltige Eingabe. Bitte versuchen Sie es erneut." << endl;
-			system("PAUSE");
-			clearInput();
-		}*/
+		try {
+			eingabe = std::stoi(input);
+		}
+		catch (const std::invalid_argument&) {
+			eingabe = -1; 
+		}
 
-	} while (eingabe != 99 && (eingabe < 0 || eingabe > 6));
+		if (cin.fail()) {
+			cout << "Ungueltige Eingabe. Bitte nur Zahlen verwenden." << endl;
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			continue;
+		}
 
-	// TODO: maybe adjust this code to be in the loop
-	if (eingabe == 0)
-	{
-		// Erstes Grid vorbelegen (per Zufallszahlen) ...
-		// TO DO
-		for (int y = 0; y < grid_size; y++) {
-			for (int x = 0; x < grid_size; x++) {
-				grid[x][y] = gip_random(0, 1);
+		switch (eingabe) {
+		case 0:
+			for (int y = 0; y < grid_size; y++) {
+				for (int x = 0; x < grid_size; x++) {
+					grid[x][y] = gip_random(0, 1);
+				}
 			}
+		break;
+		case 1: {
+			//const int pattern_size_1 = 3;
+			char pattern[3][3] =
+			{
+			{ '.', '*', '.' },
+			{ '*', '.', '*' },
+			{ '.', '*', '.' },
+			};
+			for (int y = 0; y < 3; y++)
+				for (int x = 0; x < 3; x++)
+					if (pattern[y][x] == '*')
+						grid[x][y + 3] = true;
 		}
-	}
-	else if (eingabe == 1)
-	{
-		const int pattern_size = 3;
-		char pattern[pattern_size][pattern_size] =
-		{
-		{ '.', '*', '.' },
-		{ '*', '.', '*' },
-		{ '.', '*', '.' },
-		};
-		for (int y = 0; y < pattern_size; y++)
-			for (int x = 0; x < pattern_size; x++)
-				if (pattern[y][x] == '*')
-					grid[x][y + 3] = true;
-	}
-	else if (eingabe == 2)
-	{
-		const int pattern_size = 3;
-		char pattern[pattern_size][pattern_size] =
-		{
-		{ '.', '*', '.' },
-		{ '.', '*', '.' },
-		{ '.', '*', '.' },
-		};
-		for (int y = 0; y < pattern_size; y++)
-			for (int x = 0; x < pattern_size; x++)
-				if (pattern[y][x] == '*')
-					grid[x][y + 3] = true;
-	}
-	else if (eingabe == 3)
-	{
-		const int pattern_size = 8;
-		char pattern[pattern_size][pattern_size] =
-		{
-		{ '.', '.', '.', '*', '*', '.', '.', '.' },
-		{ '.', '.', '*', '.', '.', '*', '.', '.' },
-		{ '.', '*', '.', '.', '.', '.', '*', '.' },
-		{ '*', '.', '.', '.', '.', '.', '.', '*' },
-		{ '*', '.', '.', '.', '.', '.', '.', '*' },
-		{ '.', '*', '.', '.', '.', '.', '*', '.' },
-		{ '.', '.', '*', '.', '.', '*', '.', '.' },
-		{ '.', '.', '.', '*', '*', '.', '.', '.' },
-		};
-		for (int y = 0; y < pattern_size; y++)
-			for (int x = 0; x < pattern_size; x++)
-				if (pattern[y][x] == '*')
-					grid[x][y + 1] = true;
-	}
-	else if (eingabe == 4)
-	{
-		const int pattern_size = 3;
-		char pattern[pattern_size][pattern_size] =
-		{
-		{ '.', '*', '.' },
-		{ '.', '.', '*' },
-		{ '*', '*', '*' },
-		};
-		for (int y = 0; y < pattern_size; y++)
-			for (int x = 0; x < pattern_size; x++)
-				if (pattern[y][x] == '*')
-					grid[x][y + 3] = true;
-	}
-	else if (eingabe == 5)
-	{
-		const int pattern_size = 5;
-		char pattern[pattern_size][pattern_size] =
-		{
-		{ '*', '.', '.', '*', '.' },
-		{ '.', '.', '.', '.', '*' },
-		{ '*', '.', '.', '.', '*' },
-		{ '.', '*', '*', '*', '*' },
-		{ '.', '.', '.', '.', '.' },
-		};
-		for (int y = 0; y < pattern_size; y++)
-			for (int x = 0; x < pattern_size; x++)
-				if (pattern[y][x] == '*')
-					grid[x][y + 3] = true;
-	}
-	else if (eingabe == 6)
-	{
-		const int pattern_size = 6;
-		char pattern[pattern_size][pattern_size] =
-		{
-		{ '.', '*', '*', '*', '*', '*' },
-		{ '*', '.', '.', '.', '.', '*' },
-		{ '.', '.', '.', '.', '.', '*' },
-		{ '*', '.', '.', '.', '*', '.' },
-		{ '.', '.', '*', '.', '.', '.' },
-		{ '.', '.', '.', '.', '.', '.' },
-		};
-		for (int y = 0; y < pattern_size; y++)
-			for (int x = 0; x < pattern_size; x++)
-				if (pattern[y][x] == '*')
-					grid[x][y + 3] = true;
-	}
-	else if (eingabe == 99)
-		exit(0);
+		break;
+		case 2: {
+			//const int pattern_size_2 = 3;
+			char pattern[3][3] =
+			{
+			{ '.', '*', '.' },
+			{ '.', '*', '.' },
+			{ '.', '*', '.' },
+			};
+			for (int y = 0; y < 3; y++)
+				for (int x = 0; x < 3; x++)
+					if (pattern[y][x] == '*')
+						grid[x][y + 3] = true;
+		}
+		break;
+		case 3: {
+			//const int pattern_size_3 = 8;
+			char pattern[8][8] =
+			{
+			{ '.', '.', '.', '*', '*', '.', '.', '.' },
+			{ '.', '.', '*', '.', '.', '*', '.', '.' },
+			{ '.', '*', '.', '.', '.', '.', '*', '.' },
+			{ '*', '.', '.', '.', '.', '.', '.', '*' },
+			{ '*', '.', '.', '.', '.', '.', '.', '*' },
+			{ '.', '*', '.', '.', '.', '.', '*', '.' },
+			{ '.', '.', '*', '.', '.', '*', '.', '.' },
+			{ '.', '.', '.', '*', '*', '.', '.', '.' },
+			};
+			for (int y = 0; y < 8; y++)
+				for (int x = 0; x < 8; x++)
+					if (pattern[y][x] == '*')
+						grid[x][y + 1] = true;
+		}
+		break;
+		case 4: {
+			//const int pattern_size_4 = 3;
+			char pattern[3][3] =
+			{
+			{ '.', '*', '.' },
+			{ '.', '.', '*' },
+			{ '*', '*', '*' },
+			};
+			for (int y = 0; y < 3; y++)
+				for (int x = 0; x < 3; x++)
+					if (pattern[y][x] == '*')
+						grid[x][y + 3] = true;
+		}
+		break;
+		case 5: {
+			//const int pattern_size_5 = 5;
+			char pattern[5][5] =
+			{
+			{ '*', '.', '.', '*', '.' },
+			{ '.', '.', '.', '.', '*' },
+			{ '*', '.', '.', '.', '*' },
+			{ '.', '*', '*', '*', '*' },
+			{ '.', '.', '.', '.', '.' },
+			};
+			for (int y = 0; y < 5; y++)
+				for (int x = 0; x < 5; x++)
+					if (pattern[y][x] == '*')
+						grid[x][y + 3] = true;
+		}
+		break;
+		case 6: {
+			//const int pattern_size_6 = 6;
+			char pattern[6][6] =
+			{
+			{ '.', '*', '*', '*', '*', '*' },
+			{ '*', '.', '.', '.', '.', '*' },
+			{ '.', '.', '.', '.', '.', '*' },
+			{ '*', '.', '.', '.', '*', '.' },
+			{ '.', '.', '*', '.', '.', '.' },
+			{ '.', '.', '.', '.', '.', '.' },
+			};
+			for (int y = 0; y < 6; y++)
+				for (int x = 0; x < 6; x++)
+					if (pattern[y][x] == '*')
+						grid[x][y + 3] = true;
+		}
+		break;
+		case 99:
+			exit(0);
+		default:
+			cout << "Ungueltige Auswahl. Bitte erneut waehlen." << endl;
+			break;
+		}
+	} while (eingabe != 99);
 }

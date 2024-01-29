@@ -26,6 +26,7 @@ int main()
 					cellColor);
 			}
 		}
+		
 		gip_start_updates(); 
 		gip_sleep(1);
 		for (int y = 0; y < grid_size; y++) {

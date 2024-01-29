@@ -52,7 +52,7 @@ const char spaceship1Pattern[SPACESHIP1_PATTERN_SIZE][SPACESHIP1_PATTERN_SIZE] =
 	{ '.', '*', '*', '*', '*' },
 	{ '.', '.', '.', '.', '.' },
 };
-const char spaceship2Pattern[SPACESHIP2_PATTERN_SIZE][SPACESHIP2_PATTERN_SIZE] =
+const char spaceship2Pattern[SPACESHIP2_PATTERN_SIZE][SPACESHIP2_PATTERN_SIZE] = 
 {
 	{ '.', '*', '*', '*', '*', '*' },
 	{ '*', '.', '.', '.', '.', '*' },
@@ -63,9 +63,7 @@ const char spaceship2Pattern[SPACESHIP2_PATTERN_SIZE][SPACESHIP2_PATTERN_SIZE] =
 };
 
 unsigned char* gip_rgb(int r, int g, int b) {
-	return new unsigned char[3] { static_cast<unsigned char>(r),
-								static_cast<unsigned char>(g),
-								  static_cast<unsigned char>(b) };
+	return new unsigned char[3] { static_cast<unsigned char>(r), static_cast<unsigned char>(g), static_cast<unsigned char>(b) };
 }
 
 int count_living_neighbors(bool grid[][grid_size], int x, int y) {

@@ -1,61 +1,44 @@
 #define CIMGGIP_MAIN
 #include "grid_util.h"
 
-/*This has to be the stupidest project I've done up to date...*/
-
+/*
+* Inspired by https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
+* This has to be the stupidest project I've done up to date.
+* Enjoy or something...
+*/
 int main()
 {
 	bool grid[grid_size][grid_size] = { 0 };
 	bool next_grid[grid_size][grid_size] = { 0 };
-
-	// Erstes Grid vorbelegen ...
-	grid_init(grid);
+	init_grid(grid);
 	while (gip_window_not_closed())
 	{
-		// Spielfeld anzeigen ..
 		gip_white_background();
-		gip_stop_updates(); // ... schaltet das Neuzeichnen nach
-							   // jeder Bildschirmänderung aus
-		// TO DO
+		gip_stop_updates(); 
 		for (int y = 0; y < grid_size; ++y) {
 			for (int x = 0; x < grid_size; ++x) {
-				if (grid[x][y]) {
-					gip_draw_rectangle(border + x * box_size, border + y * box_size,
-						border + (x + 1) * box_size, border + (y + 1) * box_size,
-						//gip_rgb(75, 0, 130)); // indigo for living cells
-						gip_rgb(57, 255, 20)); // neon green for living cells
-				}
-				else {
-					gip_draw_rectangle(border + x * box_size, border + y * box_size,
-						border + (x + 1) * box_size, border + (y + 1) * box_size,
-						gip_rgb(54, 54, 54)); // grey for dead
-				}
+
+				unsigned char* cellColor = grid[x][y] ? gip_rgb(153, 255, 51) : gip_rgb(40, 0, 80);
+
+				gip_draw_rectangle(
+					border + x * box_size, border + y * box_size,
+					border + (x + 1) * box_size, border + (y + 1) * box_size,
+					cellColor);
 			}
 		}
-
-		gip_start_updates(); // ... alle Bildschirmänderungen (auch die
-							 // nach dem gip_stop_updates() ) wieder anzeigen
+		gip_start_updates(); 
 		gip_sleep(1);
-		// Berechne das naechste Spielfeld ...
-		// Achtung; Für die Zelle (x,y) darf die Position (x,y) selbst *nicht*
-		// mit in die Betrachtungen einbezogen werden.
-		// Ausserdem darf bei zellen am rand nicht über den Rand hinausgegriffen
-		// werden (diese Zellen haben entsprechend weniger Nachbarn) ...
-		// TO DO
 		for (int y = 0; y < grid_size; y++) {
 			for (int x = 0; x < grid_size; x++) {
 				
 				int living_neighbors = count_living_neighbors(grid, x, y);
-				bool alive = grid[x][y];
 
-				if (alive)
+				if (grid[x][y])
 					next_grid[x][y] = !(living_neighbors < 2 || living_neighbors > 3);
 				else
 					next_grid[x][y] = (living_neighbors == 3);
 			}
 		}
-		// Kopiere das naechste Spielfeld in das aktuelle Spielfeld ...
-		// TO DO
 		for (int y = 0; y < grid_size; y++) {
 			for (int x = 0; x < grid_size; x++) {
 				grid[x][y] = next_grid[x][y];
@@ -64,4 +47,3 @@ int main()
 	}
 	return 0;
 }
-

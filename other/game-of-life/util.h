@@ -3,6 +3,7 @@
 #include <string>
 #include <limits>
 #include "CImgGIP08.h"
+
 constexpr auto DEFAULT_PATTERN_SIZE = 3;
 constexpr auto SPACESHIP1_PATTERN_SIZE = 5;
 constexpr auto SPACESHIP2_PATTERN_SIZE = 6;
@@ -63,7 +64,7 @@ const char spaceship2Pattern[SPACESHIP2_PATTERN_SIZE][SPACESHIP2_PATTERN_SIZE] =
 
 unsigned char* gip_rgb(int r, int g, int b) {
 	return new unsigned char[3] { static_cast<unsigned char>(r),
-								  static_cast<unsigned char>(g),
+								static_cast<unsigned char>(g),
 								  static_cast<unsigned char>(b) };
 }
 

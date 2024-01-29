@@ -6,7 +6,7 @@ case class Album(title: String, date: String, artist: String, tracks: List[Track
 val home = System.getProperty("user.home")
 val albums = Source.fromFile(s"$home/IdeaProjects/untitled/alben.xml").toList
 
-//Praktikum2
+//Project 2
 def parseTrack(source: List[String], TrackList: List[Track], myTrack: Track): List[Track] = source match {
   case "feature"::x::xs => parseTrack(xs, TrackList, myTrack.copy(features = myTrack.features :+ x))
   case "writing"::x::xs => parseTrack(xs, TrackList, myTrack.copy(writers =  myTrack.writers :+ x))
@@ -58,7 +58,7 @@ val Zwischen = createTokenList(albums)
 val Endergebnis = parseFile(Zwischen)
 println(Endergebnis)
 
-//Praktikum 3
+//Project 3
 //1.a)
 def map[A](func: A=>A, input_list:List[A]):List[A] = input_list match {
   case Nil => Nil

@@ -1,5 +1,5 @@
 #define CIMGGIP_MAIN
-#include "grid_util.h"
+#include "util.h"
 
 /*
 * Inspired by https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life

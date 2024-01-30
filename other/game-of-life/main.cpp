@@ -6,6 +6,7 @@
 * This has to be the stupidest project I've done up to date.
 * Enjoy or something...
 */
+
 int main()
 {
 	bool grid[grid_size][grid_size] = { 0 };
@@ -26,9 +27,8 @@ int main()
 					cellColor);
 			}
 		}
-		
 		gip_start_updates(); 
-		gip_sleep(1);
+		gip_sleep(0.5f);
 		for (int y = 0; y < grid_size; y++) {
 			for (int x = 0; x < grid_size; x++) {
 				

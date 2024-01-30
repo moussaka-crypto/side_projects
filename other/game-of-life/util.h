@@ -3,12 +3,10 @@
 #include <string>
 #include <limits>
 #include "CImgGIP08.h"
-
 constexpr auto DEFAULT_PATTERN_SIZE = 3;
 constexpr auto SPACESHIP1_PATTERN_SIZE = 5;
 constexpr auto SPACESHIP2_PATTERN_SIZE = 6;
 constexpr auto OCTAGON_PATTERN_SIZE = 8;
-using namespace std;
 using namespace cimg_library;
 
 const int grid_size = 18; // # Boxes: x and y
@@ -52,7 +50,7 @@ const char spaceship1Pattern[SPACESHIP1_PATTERN_SIZE][SPACESHIP1_PATTERN_SIZE] =
 	{ '.', '*', '*', '*', '*' },
 	{ '.', '.', '.', '.', '.' },
 };
-const char spaceship2Pattern[SPACESHIP2_PATTERN_SIZE][SPACESHIP2_PATTERN_SIZE] = 
+const char spaceship2Pattern[SPACESHIP2_PATTERN_SIZE][SPACESHIP2_PATTERN_SIZE] =
 {
 	{ '.', '*', '*', '*', '*', '*' },
 	{ '*', '.', '.', '.', '.', '*' },
@@ -61,9 +59,22 @@ const char spaceship2Pattern[SPACESHIP2_PATTERN_SIZE][SPACESHIP2_PATTERN_SIZE] =
 	{ '.', '.', '*', '.', '.', '.' },
 	{ '.', '.', '.', '.', '.', '.' },
 };
+const std::string menu =
+"Please choose the preset for the grid:\n\
+0: Random\n\
+1: Static\n\
+2: Blinker\n\
+3: Octagon\n\
+4: Glider\n\
+5: Glider 1 (Light-Weight Spaceship)\n\
+6: Glider 2 (Middle-Weight Spaceship)\n\
+99: Quit\n\
+player@game-of-life:~$ ";
 
 unsigned char* gip_rgb(int r, int g, int b) {
-	return new unsigned char[3] { static_cast<unsigned char>(r), static_cast<unsigned char>(g), static_cast<unsigned char>(b) };
+	return new unsigned char[3] { static_cast<unsigned char>(r),
+								  static_cast<unsigned char>(g),
+								  static_cast<unsigned char>(b) };
 }
 
 int count_living_neighbors(bool grid[][grid_size], int x, int y) {
@@ -106,21 +117,12 @@ void init_grid(bool grid[][grid_size])
 	int i = -1;
 	do {
 		system("CLS");
-		cout << "Please choose the preset for the grid:" << endl
-			<< "0: Random" << endl
-			<< "1: Static" << endl
-			<< "2: Blinker" << endl
-			<< "3: Octagon" << endl
-			<< "4: Glider" << endl
-			<< "5: Glider 1 (Light-Weight Spaceship)" << endl
-			<< "6: Glider 2 (Middle-Weight Spaceship)" << endl
-			<< "99: Quit" << endl
-			<< "player@game-of-life:~$ ";
+		std::cout << menu; 
 
-		string s;
-		getline(cin, s);
+		std::string s;
+		std::getline(std::cin, s);
 		if (s.empty()) {
-			cout << "Invalid Input. Please try again." << endl; system("PAUSE");
+			std::cout << "Invalid Input. Please try again.\n"; system("PAUSE");
 			continue;
 		}
 		try {
@@ -130,9 +132,9 @@ void init_grid(bool grid[][grid_size])
 			i = -1;
 		}
 
-		if (cin.fail()) {
-			cin.clear();
-			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		if (std::cin.fail()) {
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 			continue;
 		}
 
@@ -171,7 +173,7 @@ void init_grid(bool grid[][grid_size])
 		case 99:
 			exit(0);
 		default:
-			cout << "Invalid Input. Please try again." << endl; system("PAUSE");
+			std::cout << "Invalid Input. Please try again.\n"; system("PAUSE");
 			break;
 		}
 	} while (i != 99 && (i < 0 || i > 6));

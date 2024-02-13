@@ -1,12 +1,12 @@
 ## **Side projects**
-### **Мои разработки на задачи от избираеми дисциплини и други мои проекти** <br>
-  ### **Electives/Избираеми дисциплини**
+### **Избрани задачи от определени дисциплини и други странични проекти** <br>
+  #### **Electives/Избираеми дисциплини**
    * #### [_crypto_ (Cryptology/Криптология)](https://github.com/moussaka-crypto/side_projects/tree/master/electives/crypto)
    * #### [_intro2ai_ (Introduction to AI/Въведение в изкуствения интелект)](https://github.com/moussaka-crypto/side_projects/tree/master/electives/intro2ai)
    * #### [_inf-theory_ (Information Theory/Теория на информацията)](https://github.com/moussaka-crypto/side_projects/tree/master/electives/inf-theory)
    * #### [_kmps_ (Modern Programming Concepts/Модерни концепции на програмирането)](https://github.com/moussaka-crypto/side_projects/tree/master/electives/kmps)
 
-  ### **Other/Други**
+  #### **Other/Други**
    * #### [_delete-WL_ (Delete Watch Later videos script/Скрипт за изтриване на плейлиста "Гледай по-късно")](https://github.com/moussaka-crypto/side_projects/tree/master/other/delete-WL)
    * #### [_fourier_ (Фурие трансформация)](https://github.com/moussaka-crypto/side_projects/tree/master/other/fourier)
    * #### [_game-of-life_ (Играта "Живот")](https://github.com/moussaka-crypto/side_projects/tree/master/other/game-of-life)
@@ -19,8 +19,3 @@
 <img src="https://static.wikia.nocookie.net/shuumatsu-no-valkyrie/images/3/3d/Beelzebub_anime.png/revision/latest/scale-to-width-down/1000?cb=20230712090256"
      alt="Beelz"
      width= 50%; />
-
-<!--### Done out of boredom...
-<img src="https://static.wikia.nocookie.net/shuumatsu-no-valkyrie/images/2/21/Thor%27s_Boredom.png/revision/latest?cb=20190608130052"
-     alt="bored"
-  width= 30%/>-->

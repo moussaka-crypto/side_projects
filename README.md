@@ -1,5 +1,13 @@
-## **Side projects**
-### **Избрани задачи от определени дисциплини и други странични проекти** <br>
+## **Side projects** <br> **Избрани задачи от определени дисциплини и други странични проекти** 
+![Python](https://img.shields.io/badge/Python-14354C.svg?logo=python&logoColor=white)
+![C++](https://custom-icon-badges.demolab.com/badge/C++-9C033A.svg?logo=cpp2&logoColor=white)
+![Java](https://custom-icon-badges.demolab.com/badge/Java-007396.svg?logo=java&logoColor=white)
+![Elixir](https://custom-icon-badges.demolab.com/badge/Elixir-330b48.svg?logo=elixir&logoColor=white)
+![Scala](https://custom-icon-badges.demolab.com/badge/Scala-db3323.svg?logo=scala&logoColor=white)
+![Go](https://custom-icon-badges.demolab.com/badge/Go-04acd4.svg?logo=go&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E.svg?logo=javascript&logoColor=black)
+<br>
+
   #### **Electives/Избираеми дисциплини**
    * #### [_crypto_ (Cryptology/Криптология)](https://github.com/moussaka-crypto/side_projects/tree/master/electives/crypto)
    * #### [_intro2ai_ (Introduction to AI/Въведение в изкуствения интелект)](https://github.com/moussaka-crypto/side_projects/tree/master/electives/intro2ai)

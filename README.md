@@ -14,13 +14,6 @@
   * [_About the game_](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) / [_Относно играта_](https://bg.wikipedia.org/wiki/%D0%96%D0%B8%D0%B2%D0%BE%D1%82_(%D0%B8%D0%B3%D1%80%D0%B0))
 <br>
 
-![Java](https://custom-icon-badges.demolab.com/badge/Java-007396.svg?logo=java&logoColor=white)
-![Elixir](https://custom-icon-badges.demolab.com/badge/Elixir-330b48.svg?logo=elixir&logoColor=white)
-![Scala](https://custom-icon-badges.demolab.com/badge/Scala-db3323.svg?logo=scala&logoColor=white)
-![Go](https://custom-icon-badges.demolab.com/badge/Go-04acd4.svg?logo=go&logoColor=white)
-* #### [_kmps_ (Modern Programming Concepts/Модерни концепции на програмирането)](https://github.com/moussaka-crypto/side_projects/tree/master/electives/kmps)
-<br>
-
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E.svg?logo=javascript&logoColor=black)
 * #### [_delete-WL_ (Delete Watch Later videos script/Скрипт за изтриване на плейлиста "Гледай по-късно")](https://github.com/moussaka-crypto/side_projects/tree/master/other/delete-WL)
 <br>
